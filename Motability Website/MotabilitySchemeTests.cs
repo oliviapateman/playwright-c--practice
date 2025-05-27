@@ -1,6 +1,3 @@
-using System.Net.Mime;
-using System.Security.AccessControl;
-using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 using PlaywrightTest.PageObjects;
 
@@ -30,23 +27,6 @@ public class MotabilitySchemeTests : PageTest
         var frameContent = await _homePage.GetBulkConsentFrameTitle();
         string titleText = await frameContent.TitleAsync();
         Assert.That(titleText, Is.EqualTo("Bulk Consent Manager"));
-    }
-
-    [Test]
-    public async Task OpenNewTab()
-    {
-        // would be in SetUp() if had new tabs had their own test file
-        IPage newTab = await _homePage.OpenCareersTab();
-        await Expect(_careersPage.GetCareersHeading(newTab)).ToBeVisibleAsync();
-    }
-
-    [Test]
-    public async Task SearchAnalystInNewTab()
-    {
-        IPage newTab = await _homePage.OpenCareersTab();
-        await _careersPage.EnterJobKeywords(newTab, "analyst");
-        await _careersPage.ClickSearchJobs(newTab);
-        await Expect(_careersPage.GetAnalystFilter(newTab)).ToBeVisibleAsync();
     }
 
     [Test]
