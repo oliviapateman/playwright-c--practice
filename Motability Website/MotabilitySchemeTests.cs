@@ -8,14 +8,12 @@ namespace PlaywrightTest;
 public class MotabilitySchemeTests : PageTest
 {
     private MotabilityHomePage _homePage;
-    private MotabilityCareersPage _careersPage;
     private MotabilitySignInPage _signInPage;
 
     [SetUp]
     public async Task Setup()
     {
         _homePage = new MotabilityHomePage(Page, Context);
-        _careersPage = new MotabilityCareersPage(Page);
         _signInPage = new MotabilitySignInPage(Page);
         await _homePage.GoToHomePage();
         await _homePage.ClickAcceptCookiesBtn();

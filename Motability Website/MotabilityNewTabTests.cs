@@ -10,7 +10,6 @@ public class MotabilityNewTabTests : PageTest
 {
     private MotabilityHomePage _homePage;
     private MotabilityCareersPage _careersPage;
-    private MotabilitySignInPage _signInPage;
     private IPage _newTab;
 
     [SetUp]
@@ -18,7 +17,6 @@ public class MotabilityNewTabTests : PageTest
     {
         _homePage = new MotabilityHomePage(Page, Context);
         _careersPage = new MotabilityCareersPage(Page);
-        _signInPage = new MotabilitySignInPage(Page);
         await _homePage.GoToHomePage();
         await _homePage.ClickAcceptCookiesBtn();
         _newTab = await _homePage.OpenCareersTab();
