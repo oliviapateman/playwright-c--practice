@@ -12,6 +12,9 @@ namespace PlaywrightTest.PageObjects
         }
 
         private readonly string url = "https://ten10.com";
+        private ILocator CompanyDropDown => _page.GetByRole(AriaRole.Link, new() { Name = "Company" });
+        private ILocator MeetTeamOption => _page.GetByRole(AriaRole.Link, new() { Name = "Meet the Team" });
+        private ILocator ContactBtn => _page.GetByTitle("Contact");
 
         public async Task GoToHomePage()
         {
@@ -20,12 +23,17 @@ namespace PlaywrightTest.PageObjects
 
         public async Task HoverCompanyDropDown()
         {
-            await _page.GetByRole(AriaRole.Link, new() { Name = "Company" }).HoverAsync();
+            await CompanyDropDown.HoverAsync();
         }
 
         public async Task ClickMeetTheTeamOption()
         {
-            await _page.GetByRole(AriaRole.Link, new() { Name = "Meet the Team" }).ClickAsync();
+            await MeetTeamOption.ClickAsync();
+        }
+
+        public async Task ClickContactBtn()
+        {
+            await ContactBtn.ClickAsync();
         }
     }
 }
