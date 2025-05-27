@@ -4,3 +4,14 @@ obj
 *.user
 *.ncb
 Debug/
+## .net core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+## nunit
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+## vscode
+.localhistory/
+.vshistory/
